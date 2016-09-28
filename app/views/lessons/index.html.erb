@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lessons</h1>
+
+<%= link_to 'New Lesson', new_lesson_path %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lessons.each do |lesson| %>
+      <tr data-id="<%= lesson.id %>">
+        <td rowspan="2"><img src="<%= lesson.image %>" width="40" height="40"></td>
+        <td><a href="<%= lesson.url %>" target="_blank" class="act_link" data-refresh="false" data-completed="true"><%= lesson.title %></a></td>
+        <td rowspan="2"><%= lesson.completed ? 'True' : 'False' %></td>
+        <td rowspan="2"><%= link_to 'Edit', '#', data: { refresh: true, completed: false }, class: 'act_link' %></td>
+      </tr>
+      <tr>
+        <td><%= lesson.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @lessons %>

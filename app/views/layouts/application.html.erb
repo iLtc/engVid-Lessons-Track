@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EngVidLessonsTrack</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if signed_in? %>
+      <div style='float: right;'>
+        <%= link_to "Sign Out", signout_path, method: :delete %> 
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
