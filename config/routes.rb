@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :configs
   root 'lessons#index'
   
   get 'signin' => 'sessions#new'
