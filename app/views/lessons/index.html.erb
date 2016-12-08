@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lessons</h1>
+<h1>Lessons (<%= @completed_count%> / <%= @total_count%>, <%= (@completed_precent * 100).round(2)%>%)</h1>
 
 <%= link_to 'New Lesson', new_lesson_path %> | <%= link_to 'Config', configs_path %>
 

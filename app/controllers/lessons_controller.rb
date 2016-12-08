@@ -4,6 +4,10 @@ class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
   def index
+    @completed_count = Lesson.where(completed: true).count
+    @total_count = Lesson.count
+    @completed_precent = @completed_count.to_f / @total_count
+    
     @lessons = Lesson.order(completed: :asc, id: :desc).paginate(page: params[:page], per_page: 30)
   end
 
