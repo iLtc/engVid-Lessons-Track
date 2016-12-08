@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.order('id DESC').paginate(page: params[:page], per_page: 30)
+    @lessons = Lesson.order(completed: :asc, id: :desc).paginate(page: params[:page], per_page: 30)
   end
 
   # GET /lessons/1
